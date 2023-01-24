@@ -1,0 +1,22 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" cache="false" id="pg" applyBodyTag="false" applyHtmlTag="false">
+    <html>
+        <head>
+            <script src='<a class="vglnk" href="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" rel="nofollow"><span>https</span><span>://</span><span>www</span><span>.</span><span>google</span><span>.</span><span>com</span><span>/</span><span>recaptcha</span><span>/</span><span>api</span><span>.</span><span>js</span><span>?</span><span>onload</span><span>=</span><span>onloadCallback</span><span>&</span><span>render</span><span>=</span><span>explicit</span></a>' async='' defer=''/>
+            <script type='text/javascript'>
+                var verifyCallback = function(response){
+                    parent.postMessage('VALID', '<a class="vglnk" href="https://biswajeet-dev-ed.lightning.force.com/" rel="nofollow"><span>https</span><span>://</span><span>biswajeet</span><span>-</span><span>dev</span><span>-</span><span>ed</span><span>.</span><span>lightning</span><span>.</span><span>force</span><span>.</span><span>com</span><span>/</span></a>');
+                };
+             
+            var onloadCallback = function() {
+                grecaptcha.render('reCAPTCHAWidget', {
+                    'sitekey' : '6Le0QYQdAAAAALxJEnXGINNDULhWReuzqE5313-Y', 
+                    'callback' : verifyCallback
+                });
+            };
+            </script>
+        </head>
+        <body>
+            <div id="reCAPTCHAWidget"></div>
+        </body>
+    </html>
+</apex:page>

@@ -1,0 +1,6 @@
+<template>
+    <lightning-input type="file" label="PDF File" accept=".pdf" onchange={handleFileChange}></lightning-input>
+    <template if:true={file}>
+      <object data={fileUrl} type="application/pdf"></object>
+    </template>
+  </template>

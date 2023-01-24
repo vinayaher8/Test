@@ -1,0 +1,34 @@
+<template>
+
+    <lightning-card title="Mortgage Calculator">
+        <lightning-layout multiple-rows>
+
+            <lightning-layout-item size="6" padding="around-medium">
+                <lightning-input type="text" class="apr" label="APR%" value={CurrentUser.name} onchange={handleAPRChange}></lightning-input>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="6" padding="around-medium">
+                <lightning-input type="text" class="trm" label="Loan Term:" value={Loan_Term} onchange={handleLoanTerm}></lightning-input>
+            </lightning-layout-item>
+
+
+            <lightning-layout-item size="6" padding="around-medium">
+                <lightning-input type="text" class="amt" label="Loan Amount:" value={Loan_Amount} onchange={handleLoanAmount}></lightning-input>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="6" padding="around-small">
+                <lightning-input type="text" class="pmt" label="Monthly Payment:" value={Monthly_Payment}></lightning-input>
+            </lightning-layout-item>
+
+            <lightning-button-group  class="slds-align_absolute-center" style="height:5rem">
+                <lightning-button label="Submit" onclick={handleClick} class="slds-button slds-button_brand">Submit
+                </lightning-button>
+    
+                <lightning-button label="reset" onclick={handleResetClick} class="slds-button slds-button_brand">Reset
+                </lightning-button>
+            </lightning-button-group>
+
+        </lightning-layout>
+    </lightning-card>
+
+</template>
