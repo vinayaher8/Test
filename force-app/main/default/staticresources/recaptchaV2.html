@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+<body>
+    <form id="form" action="{{ FORM HANDLER URL }}" method="post">
+        <label>Email: </label>
+        <input type="email" name="EmailAddress">
+        <div 
+            class="g-recaptcha" 
+            data-sitekey="{{ YOUR SITE KEY }}" 
+            data-callback="grecaptchaCallback" 
+            data-size="invisible"
+        ></div>
+        <br>
+        <button>Send</button>
+    </form>
+    <script>
+        var form = document.getElementById('form');
+
+        form.addEventListener('submit', grecaptchaValidate);
+
+        function grecaptchaCallback() {
+            return new Promise(function (resolve, reject) {
+                if (grecaptcha.getResponse() !== '') {
+                    form.submit();
+                }
+                grecaptcha.reset();
+            })
+        }
+
+        function grecaptchaValidate(e) {
+            e.preventDefault();
+            grecaptcha.execute();
+        }
+    </script>
+</body>
+</html>

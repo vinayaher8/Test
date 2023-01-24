@@ -1,0 +1,45 @@
+<apex:page showHeader="false" controller="GoogleReCaptchaController"> 
+    <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' />
+    
+    <div id="widgetId1" class="g-recaptcha" style="transform: scale(0.74);transform-origin: 0 0;-webkit-transform:scale(0.74);-webkit-transform-origin: 0 0"></div>
+    
+    <style>
+        body, div{
+            background:transparent !important;
+        }
+    </style>
+    
+    <script type="text/javascript">
+        /*
+         * Used when reCAPTCHA was clicked on by user in this page
+         */
+        var verifyResponse = function(response) {
+            var hostURL = "{!hosturl}";
+            if (response == ""){
+                parent.postMessage(
+                    {
+                        action: "reCaptchaCallingAura",
+                        alohaResponseCAPTCHA: "NOK"
+                    },
+                    hostURL);
+            } else {
+                parent.postMessage(
+                    {
+                        action: "reCaptchaCallingAura",
+                        alohaResponseCAPTCHA: "OK"
+                    },
+                    hostURL
+                );
+            }
+        };
+    
+        var onloadCallback = function() {
+            grecaptcha.render("widgetId1", {
+                "sitekey" : "{!sitekey}",
+                "callback" : verifyResponse,
+                "data-size" : "compact",
+                "data-theme" : "light"
+            });
+        };    
+    </script>
+</apex:page>
